@@ -1,0 +1,27 @@
+% Cut & Crop Marks Maker (set by default to A4) - Surendra Rana
+% Adapted from an answer on TeX Stack Exchange
+
+\documentclass{article}
+\usepackage[paperwidth=210mm,paperheight=297mm,margin=5mm]{geometry}
+\usepackage{tikzpagenodes}
+\usetikzlibrary {calc}
+\usepackage{lipsum}
+
+\begin{document}
+\begin{tikzpicture}[overlay, remember picture]
+    \draw ($(current page text area.north west)+(-0.2,0)$) -- ++ (2.2,0);
+    \draw ($(current page text area.north west)+(0,0.2)$) -- ++ (0,-2.2);
+
+    \draw ($(current page text area.north east)+(0.2,0)$) -- ++ (-2.2,0);
+    \draw ($(current page text area.north east)+(0,0.2)$) -- ++ (0,-2.2);
+
+    \draw ($(current page text area.south west)+(-0.2,0)$) -- ++ (2.2,0);
+    \draw ($(current page text area.south west)+(0,-0.2)$) -- ++ (0,2.2);
+
+    \draw ($(current page text area.south east)+(0.2,0)$) -- ++ (-2.2,0);
+    \draw ($(current page text area.south east)+(0,-0.2)$) -- ++ (0,2.2);
+\end{tikzpicture}
+
+\noindent
+
+\end{document}
